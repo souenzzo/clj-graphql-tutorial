@@ -1,0 +1,20 @@
+type Todo {
+    id: ID!
+    descricao: String!
+}
+
+type Usuario {
+    id: ID!
+    nome: String!
+    todos: [Todo!]
+}
+
+type MutationRoot {
+    meCria(nome: String!): Usuario!
+    novoTodo(descricao: String!, nome_usuario: String!): Usuario!
+    deletaTodo(id: ID!): Usuario!
+}
+
+type QueryRoot {
+    eu (nome: String!): Usuario!
+}

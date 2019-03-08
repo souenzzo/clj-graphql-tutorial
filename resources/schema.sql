@@ -1,0 +1,18 @@
+CREATE TABLE usuario
+(
+  id   SERIAL NOT NULL UNIQUE PRIMARY KEY,
+  nome TEXT   NOT NULL UNIQUE
+);
+
+CREATE TABLE todo
+(
+  id        SERIAL NOT NULL UNIQUE PRIMARY KEY,
+  descricao TEXT
+);
+
+CREATE TABLE todos_do_usuario
+(
+  id      SERIAL NOT NULL UNIQUE PRIMARY KEY,
+  usuario SERIAL NOT NULL REFERENCES usuario (id),
+  todo    SERIAL NOT NULL UNIQUE REFERENCES todo (id)
+);
